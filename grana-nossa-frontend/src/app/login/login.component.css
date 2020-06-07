@@ -1,0 +1,12 @@
+form {
+    min-width: 360px
+}
+
+form mat-form-field {
+    display: block;
+    margin: 10px
+}
+
+.btn-submit {
+    text-align: center;
+}

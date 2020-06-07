@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Login } from '../models/login';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
-
+  hide: boolean;
+  model: Login;
+  formLogin: FormGroup;
+  constructor(
+    private formBuilder: FormBuilder,
+  ) {
+    
+  }
+  
   ngOnInit(): void {
+    this.hide = true;
+    this.formLogin = this.formBuilder.group({
+      email : ['', [Validators.required, Validators.email]],
+      senha : ['', [Validators.required]],
+    });
   }
 
+  onSubmit() {
+    if(this.formLogin.valid) {
+      console.warn('Tentou Enviar');
+    }
+  }
 }

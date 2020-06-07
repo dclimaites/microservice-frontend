@@ -1,1 +1,25 @@
-<p>login works!</p>
+<mat-grid-list cols="4" rowHeight="100vh">
+    <mat-grid-tile colspan="4">
+        <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="fill">
+                <mat-label>Email:</mat-label>
+                <input matInput placeholder="email@exemplo.com" required formControlName="email">
+                <mat-error>E-mail informado é inválido</mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field appearance="fill">
+                <mat-label>Senha</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="senha">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error>Senha é obrigatória</mat-error>
+            </mat-form-field>
+
+            <div class="btn-submit">
+                <button type="submit" placeholder="Logar" mat-raised-button color="primary"> Logar </button>
+            </div>
+        </form>
+    </mat-grid-tile>
+</mat-grid-list>

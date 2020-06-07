@@ -3,6 +3,17 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule, Routes } from '@angular/router';
+import { ReactiveFormsModule, FormBuilder } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+import { CustomMaterialModule } from './core/custom-material/custom-material.module';
+
+const appRoutes: Routes = [
+  { path: '', component: LoginComponent},
+  { path: 'login', component: LoginComponent },
+]
 
 @NgModule({
   declarations: [
@@ -10,9 +21,21 @@ import { LoginComponent } from './login/login.component';
     LoginComponent
   ],
   imports: [
-    BrowserModule
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: false }
+    ),
+    // ToastrModule.forRoot(),
+    HttpClientModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    CustomMaterialModule,
   ],
-  providers: [],
+  exports: [
+    CustomMaterialModule,
+  ],
+  providers: [FormBuilder],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
