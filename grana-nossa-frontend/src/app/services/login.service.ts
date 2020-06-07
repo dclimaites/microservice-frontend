@@ -8,13 +8,13 @@ import { Login } from '../models/login';
 })
 export class LoginService {
 
-  private url = `${environment.urlApiUsuario}/usuario`;
+  private url = `${environment.urlApiUsuario}`;
 
   constructor(
     private service: ApiService<Login>,
   ) { }
 
-  logar(login: Login) {
-    this.service.post(this.url, login);
+  autenticar(login: Login) : Promise<Login | void> {
+    return this.service.post(`${this.url}/autenticar`, login);
   }
 }
