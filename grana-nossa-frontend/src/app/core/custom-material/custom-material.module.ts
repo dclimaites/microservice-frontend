@@ -6,7 +6,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   imports: [
@@ -17,6 +18,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatInputModule,
     MatButtonModule,
     MatGridListModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   exports: [
     MatFormFieldModule,
@@ -25,6 +28,11 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatInputModule,
     MatButtonModule,
     MatGridListModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
+  providers: [
+    {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'}    
+  ]
 })
 export class CustomMaterialModule { }

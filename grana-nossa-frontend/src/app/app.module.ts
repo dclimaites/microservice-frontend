@@ -9,16 +9,21 @@ import { ReactiveFormsModule, FormBuilder } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { CustomMaterialModule } from './core/custom-material/custom-material.module';
+import { EmprestimoComponent } from './emprestimo/emprestimo.component';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
+
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent},
   { path: 'login', component: LoginComponent },
+  { path: 'emprestimo/solicitar', component: EmprestimoComponent },
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    EmprestimoComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -31,11 +36,15 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     ReactiveFormsModule,
     CustomMaterialModule,
+
   ],
   exports: [
     CustomMaterialModule,
   ],
-  providers: [FormBuilder],
+  providers: [
+    FormBuilder, 
+    {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'}    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

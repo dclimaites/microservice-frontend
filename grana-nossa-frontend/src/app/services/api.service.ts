@@ -51,7 +51,7 @@ export class ApiService<T> {
     const token = '';
 
     const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`
+      Authorization: `Bearer ${token}`,
     });
 
     return { headers };
