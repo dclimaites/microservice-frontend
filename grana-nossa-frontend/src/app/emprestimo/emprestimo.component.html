@@ -3,13 +3,13 @@
         <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
             <mat-form-field appearance="fill">
                 <mat-label>Quanto deseja solicitar?</mat-label>
-                <input #montante matInput type="number" required formControlName="montante">
+                <input #montante matInput type="number" required formControlName="montante" [(ngModel)]="modelo.montante">
                 <mat-error >O campo é obrigatório e deve conter um valor maior que 0</mat-error>
             </mat-form-field>
 
             <mat-form-field color="accent">
-                <mat-label>Quanto deseja solicitar?</mat-label>
-                <input [matDatepicker]="pickerDataVencimento" matInput type="text" required formControlName="montante">
+                <mat-label>Qual é a data de vencimento?</mat-label>
+                <input [matDatepicker]="pickerDataVencimento" matInput type="text" required formControlName="dataVencimento" [(ngModel)]="modelo.dataVencimento">
                 <mat-datepicker-toggle matSuffix [for]="pickerDataVencimento"></mat-datepicker-toggle>
                 <mat-datepicker #pickerDataVencimento></mat-datepicker>
                 <mat-error >O campo é obrigatório</mat-error>

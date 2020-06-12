@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CustomMaterialModule } from './core/custom-material/custom-material.module';
 import { EmprestimoComponent } from './emprestimo/emprestimo.component';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { ToastrModule } from 'ngx-toastr';
+
 
 
 const appRoutes: Routes = [
@@ -30,7 +32,7 @@ const appRoutes: Routes = [
       appRoutes,
       { enableTracing: false }
     ),
-    // ToastrModule.forRoot(),
+    ToastrModule.forRoot(),
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,

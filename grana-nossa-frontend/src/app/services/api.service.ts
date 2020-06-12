@@ -26,7 +26,7 @@ export class ApiService<T> {
   async post<T>(url: string, model: T) {
     const authHeader: { headers: HttpHeaders } = await this.getHeaders() as { headers: HttpHeaders };
 
-    return this.http.post<T>(url, model, authHeader).toPromise<T>()
+    return this.http.post<T>(url, model).toPromise<T>()
       .then(res => {
         return res;
       })

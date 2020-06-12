@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { EmprestimoService } from '../services/emprestimo.service';
+import { Emprestimo } from '../models/emprestimo';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-emprestimo',
@@ -9,8 +12,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class EmprestimoComponent implements OnInit {
 
   formGroup: FormGroup;
+  modelo: Emprestimo = new Emprestimo();
   constructor(
     private formBuilder: FormBuilder,
+    private service : EmprestimoService,
+    private toastr : ToastrService,
   ) { }
 
   ngOnInit(): void {
@@ -19,9 +25,18 @@ export class EmprestimoComponent implements OnInit {
       dataVencimento : ['', [Validators.required]],
     });
   }
-  onSubmit() {
-    if(this.formGroup.valid){
 
+  onSubmit() {
+    debugger;
+    if(this.formGroup.valid){
+      this.service.solicitarEmprestimo(this.modelo).then(
+        () => {
+          this.toastr.success("Empréstimo solicitado com sucesso");
+        },
+        (erro) => {
+          this.toastr.error(erro);
+        }
+      )
     }
   }
 
