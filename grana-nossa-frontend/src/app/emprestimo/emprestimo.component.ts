@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EmprestimoService } from '../services/emprestimo.service';
 import { Emprestimo } from '../models/emprestimo';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-emprestimo',
@@ -17,6 +18,7 @@ export class EmprestimoComponent implements OnInit {
     private formBuilder: FormBuilder,
     private service : EmprestimoService,
     private toastr : ToastrService,
+    private router : Router,
   ) { }
 
   ngOnInit(): void {
@@ -38,6 +40,11 @@ export class EmprestimoComponent implements OnInit {
         }
       )
     }
+  }
+
+  deslogar() {
+    localStorage.clear();
+    this.router.navigateByUrl("/");
   }
 
 }

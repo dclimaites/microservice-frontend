@@ -1,4 +1,4 @@
-<mat-grid-list cols="4" rowHeight="80vh">
+<mat-grid-list cols="4">
     <mat-grid-tile colspan="4">
         <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
             <mat-form-field appearance="fill">
@@ -19,6 +19,9 @@
                 <button type="submit" mat-raised-button color="primary"> Solicitar </button>
             </div>
         </form>
+    </mat-grid-tile>
+    <mat-grid-tile >
+        <button type="button" mat-raised-button color="primary" placeholder="Sair" (click)="deslogar()" >Sair</button>
     </mat-grid-tile>
 
 </mat-grid-list>

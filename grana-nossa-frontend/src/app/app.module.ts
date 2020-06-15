@@ -12,6 +12,7 @@ import { CustomMaterialModule } from './core/custom-material/custom-material.mod
 import { EmprestimoComponent } from './emprestimo/emprestimo.component';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { ToastrModule } from 'ngx-toastr';
+import { ConsultaEmprestimoComponent } from './emprestimo/consulta-emprestimo/consulta-emprestimo.component';
 
 
 
@@ -25,7 +26,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     LoginComponent,
-    EmprestimoComponent
+    EmprestimoComponent,
+    ConsultaEmprestimoComponent
   ],
   imports: [
     RouterModule.forRoot(
