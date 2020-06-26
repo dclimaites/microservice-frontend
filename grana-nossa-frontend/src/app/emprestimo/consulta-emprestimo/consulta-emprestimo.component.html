@@ -1,1 +1,25 @@
-<p>consulta-emprestimo works!</p>
+
+        <mat-table mat-table [dataSource]="emprestimos" class="mat-elevation-z8" >
+            <ng-container  matColumnDef="dataBase">
+                <th mat-header-cell *matHeaderCellDef> Data Base </th>
+                <td mat-cell *matCellDef="let element"> {{element.dataBase}} </td>
+            </ng-container>
+            <ng-container matColumnDef="montante">
+                <th mat-header-cell *matHeaderCellDef> Valor </th>
+                <td mat-cell *matCellDef="let element"> {{element.montante}} </td>
+            </ng-container>
+            <ng-container matColumnDef="dataVencimento">
+                <th mat-header-cell *matHeaderCellDef> Vencimento </th>
+                <td mat-cell *matCellDef="let element"> {{element.dataVencimento}} </td>
+            </ng-container>
+            <ng-container matColumnDef="taxaJuros">
+                <th mat-header-cell *matHeaderCellDef> Taxa de Juros </th>
+                <td mat-cell *matCellDef="let element"> {{element.taxaJuros}} </td>
+            </ng-container>
+            <ng-container matColumnDef="taxaCET">
+                <th mat-header-cell *matHeaderCellDef> Taxa CET </th>
+                <td mat-cell *matCellDef="let element"> {{element.taxaCET}} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </mat-table>

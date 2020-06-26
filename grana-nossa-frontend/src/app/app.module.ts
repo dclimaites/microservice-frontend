@@ -20,6 +20,7 @@ const appRoutes: Routes = [
   { path: '', component: LoginComponent},
   { path: 'login', component: LoginComponent },
   { path: 'emprestimo/solicitar', component: EmprestimoComponent },
+  { path: 'emprestimo/consultar', component: ConsultaEmprestimoComponent },
 ]
 
 @NgModule({
@@ -47,7 +48,7 @@ const appRoutes: Routes = [
   ],
   providers: [
     FormBuilder, 
-    {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'}    
+    {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
   ],
   bootstrap: [AppComponent]
 })
