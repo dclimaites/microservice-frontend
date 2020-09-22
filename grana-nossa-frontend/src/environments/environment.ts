@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  urlApiUsuario: 'http://localhost:8085/usuarios',
-  urlApiEmprestimos: 'http://localhost:8081/emprestimos',
+  urlApiUsuario: '/usuarios',
+  urlApiEmprestimos: '/emprestimos',
 };
 
 /*

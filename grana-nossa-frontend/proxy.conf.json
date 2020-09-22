@@ -1,0 +1,10 @@
+{
+    "/usuarios": {
+      "target": "http://nossagrana-usuario:8085/",
+      "secure": false
+    },
+    "/emprestimos": {
+      "target": "http://nossagrana-emprestimo:8081/",
+      "secure": false
+    }
+}
