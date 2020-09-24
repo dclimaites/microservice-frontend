@@ -14,6 +14,8 @@ RUN npm run build
 FROM nginx:alpine
 VOLUME /var/cache/nginx
 
+RUN rm /etc/nginx/conf.d/default.conf
+RUN rm -rf /usr/share/nginx/html/*
 COPY --from=node app-ui/dist/grana-nossa-frontend /usr/share/nginx/html
 COPY ./config/nginx.conf /etc/nginx/conf.d/default.conf
 #
